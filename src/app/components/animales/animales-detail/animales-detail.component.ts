@@ -60,7 +60,7 @@ export class AnimalesDetailComponent implements OnInit {
       id_usuario: this.usuarioId,
       id_animal: this.animal.id_animal,
       texto: this.nuevoComentario,
-      fecha_comentario: new Date()
+      fecha_comentario: new Date().toISOString().slice(0, 19).replace('T', ' ')
     };
 
     this.comentarioService.crearComentario(comentario, this.token).subscribe({
