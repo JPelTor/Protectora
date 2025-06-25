@@ -14,13 +14,11 @@ export class ComentarioService {
     return this.http.get<any[]>(this.apiUrl, { params: filtro });
   }
 
-  crearComentario(comentario: any, api_token: string)/* : Observable<any> */ {
+  crearComentario(comentario: any, api_token: string): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${api_token}`,
       'Content-Type': 'application/json'
     });
-    console.log('Token:', api_token);
-    console.log('Comentario a enviar:', comentario);
-    /* return this.http.post(this.apiUrl, comentario, { headers }); */
+    return this.http.post(this.apiUrl, comentario, { headers });
   }
 }

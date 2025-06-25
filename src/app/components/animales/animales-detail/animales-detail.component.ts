@@ -63,12 +63,12 @@ export class AnimalesDetailComponent implements OnInit {
       fecha_comentario: new Date().toISOString().slice(0, 19).replace('T', ' ')
     };
 
-    this.comentarioService.crearComentario(comentario, this.token)/* .subscribe({
+    this.comentarioService.crearComentario(comentario, this.token).subscribe({
       next: () => {
         this.nuevoComentario = '';
         this.cargarComentarios(this.animal!.id_animal);
       },
       error: () => alert('Error al enviar el comentario.'),
-    }); */
+    });
   }
 }
