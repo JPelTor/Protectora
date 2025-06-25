@@ -1,0 +1,9 @@
+<h2>Animales disponibles</h2>
+<div *ngIf="error" class="error">{{ error }}</div>
+<ul>
+  <li *ngFor="let animal of animales">
+    <img *ngIf="animal.foto" [src]="'https://proyectoprotectora-production.up.railway.app/storage/animals/' + animal.foto" alt="Foto de {{animal.nombre}}" width="100" />
+    <strong>{{ animal.nombre }}</strong> - {{ animal.tipo }} - {{ animal.sexo }} - Estado: {{ animal.estado_adopcion }}
+    <a [routerLink]="['/animales', animal.id_animal]">Ver detalle</a>
+  </li>
+</ul>

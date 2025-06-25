@@ -1,0 +1,28 @@
+<div *ngIf="noticia; else errorTpl" class="container mt-4">
+  <h2>{{ noticia.titular }}</h2>
+  <p><strong>Fecha:</strong> {{ noticia.fecha | date }}</p>
+  <p><strong>Lugar:</strong> {{ noticia.lugar }}</p>
+  <p><strong>Asunto:</strong> {{ noticia.asunto }}</p>
+
+  <img
+    *ngIf="noticia.imagen"
+    [src]="
+      'https://proyectoprotectora-production.up.railway.app/storage/noticias/' +
+      noticia.imagen
+    "
+    class="img-fluid my-3 rounded shadow-sm"
+    alt="Imagen de {{ noticia.titular }}"
+  />
+
+  <p>{{ noticia.contenido_completo }}</p>
+
+  <a routerLink="/noticias" class="btn btn-outline-primary mt-4"
+    >← Volver a noticias</a
+  >
+</div>
+
+<ng-template #errorTpl>
+  <div class="alert alert-danger mt-4 text-center">
+    {{ error }}
+  </div>
+</ng-template>

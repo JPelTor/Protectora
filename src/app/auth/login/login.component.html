@@ -1,7 +1,41 @@
-<h2>Iniciar Sesión</h2>
-<form (submit)="login(); $event.preventDefault()">
-  <input type="email" [(ngModel)]="correo_electronico" name="correo_electronico" placeholder="Correo" required>
-  <input type="password" [(ngModel)]="contrasena" name="contrasena" placeholder="Contraseña" required>
-  <button type="submit">Entrar</button>
-</form>
-<div *ngIf="error" style="color: red">{{ error }}</div>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card p-4 shadow" style="width: 100%; max-width: 400px;">
+    <h2 class="text-center mb-4">Iniciar sesión</h2>
+
+    <form #form="ngForm" (ngSubmit)="login()" novalidate>
+      <div class="mb-3">
+        <label for="correo_electronico" class="form-label">Correo electrónico</label>
+        <input
+          id="correo_electronico"
+          type="email"
+          [(ngModel)]="correo_electronico"
+          name="correo_electronico"
+          class="form-control"
+          [class.is-invalid]="form.submitted && !correo_electronico"
+          required
+        />
+        <div class="invalid-feedback">Este campo es obligatorio.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="contrasena" class="form-label">Contraseña</label>
+        <input
+          id="contrasena"
+          type="password"
+          [(ngModel)]="contrasena"
+          name="contrasena"
+          class="form-control"
+          [class.is-invalid]="form.submitted && !contrasena"
+          required
+        />
+        <div class="invalid-feedback">Este campo es obligatorio.</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Entrar</button>
+
+      <div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>

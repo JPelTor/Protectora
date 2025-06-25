@@ -1,0 +1,27 @@
+<div *ngIf="evento; else errorTpl" class="container mt-4">
+    <div class="card shadow-lg">
+      <div class="row g-0">
+        <div class="col-md-5">
+          <img *ngIf="evento.imagen" [src]="'https://proyectoprotectora-production.up.railway.app/storage/eventos/' + evento.imagen"
+               class="img-fluid rounded-start" alt="Imagen del evento {{ evento.nombre }}">
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <h3 class="card-title">{{ evento.nombre }}</h3>
+            <p class="card-text"><strong>Descripción:</strong><br>{{ evento.descripcion }}</p>
+            <p class="card-text"><strong>Fecha de inicio:</strong> {{ evento.fecha_inicio | date }}</p>
+            <p class="card-text"><strong>Fecha de fin:</strong> {{ evento.fecha_fin | date }}</p>
+            <p class="card-text"><strong>Lugar:</strong> {{ evento.lugar }}</p>
+            <a routerLink="/eventos" class="btn btn-outline-primary mt-3">← Volver a eventos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #errorTpl>
+    <div class="alert alert-danger mt-4 text-center">
+      {{ error }}
+    </div>
+  </ng-template>
+  

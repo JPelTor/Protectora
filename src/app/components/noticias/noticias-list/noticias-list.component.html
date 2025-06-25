@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Últimas Noticias</h2>
+  <div *ngFor="let noticia of noticias" class="card mb-3 shadow-sm">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          *ngIf="noticia.imagen"
+          [src]="
+            'https://proyectoprotectora-production.up.railway.app/storage/noticias/' +
+            noticia.imagen
+          "
+          class="img-fluid rounded-start"
+          alt="Imagen de {{ noticia.titular }}"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ noticia.titular | slice : 0 : 255 }}</h5>
+          <p class="card-text">
+            <strong>Fecha:</strong> {{ noticia.fecha | date }}
+          </p>
+          <p class="card-text">
+            <strong>Lugar:</strong> {{ noticia.lugar | slice : 0 : 255 }}
+          </p>
+          <p class="card-text">
+            <strong>Asunto:</strong> {{ noticia.asunto | slice : 0 : 255 }}
+          </p>
+          <a
+            [routerLink]="['/noticias', noticia.id_noticia]"
+            class="btn btn-sm btn-primary mt-2"
+            >Leer más</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

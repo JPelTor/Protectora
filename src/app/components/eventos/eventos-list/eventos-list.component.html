@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Próximos Eventos</h2>
+    <div class="row">
+      <div *ngFor="let evento of eventos" class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img *ngIf="evento.imagen" [src]="'https://proyectoprotectora-production.up.railway.app/storage/eventos/' + evento.imagen"
+               class="card-img-top" alt="Imagen del evento {{ evento.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ evento.nombre }}</h5>
+            <p class="card-text">
+              <strong>Inicio:</strong> {{ evento.fecha_inicio | date }}<br>
+              <strong>Lugar:</strong> {{ evento.lugar }}
+            </p>
+            <a [routerLink]="['/eventos', evento.id_evento]" class="btn btn-primary btn-sm">Mostrar más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
