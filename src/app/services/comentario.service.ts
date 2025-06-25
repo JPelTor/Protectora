@@ -19,7 +19,8 @@ export class ComentarioService {
       Authorization: `Bearer ${api_token}`,
       'Content-Type': 'application/json'
     });
-
+    console.log('Token:', api_token);
+    console.log('Comentario a enviar:', comentario);
     return this.http.post(this.apiUrl, comentario, { headers });
   }
 }
