@@ -21,6 +21,6 @@ export class ComentarioService {
     });
     console.log('Token:', api_token);
     console.log('Comentario a enviar:', comentario);
-    return this.http.post(this.apiUrl, comentario, { headers });
+    /* return this.http.post(this.apiUrl, comentario, { headers }); */
   }
 }
