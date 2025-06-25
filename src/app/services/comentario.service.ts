@@ -14,7 +14,7 @@ export class ComentarioService {
     return this.http.get<any[]>(this.apiUrl, { params: filtro });
   }
 
-  crearComentario(comentario: any, api_token: string): Observable<any> {
+  crearComentario(comentario: any, api_token: string)/* : Observable<any> */ {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${api_token}`,
       'Content-Type': 'application/json'
