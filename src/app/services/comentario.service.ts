@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { addAbortSignal } from 'node:stream';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +20,7 @@ export class ComentarioService {
       Authorization: `Bearer ${api_token}`,
       'Content-Type': 'application/json'
     });
+    console.log(comentario)
     return this.http.post(this.apiUrl, comentario, { headers });
   }
 }
